@@ -3,6 +3,10 @@
 /.pnp
 .pnp.js
 
+# Environment Variables
+.env
+.env.*
+
 # Testing
 /coverage
 
@@ -32,4 +36,4 @@ yarn-error.log*
 cache/
 artifacts/
 typechain/
-typechain-types/ 
+typechain-types/
