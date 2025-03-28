@@ -1,10 +1,20 @@
-.create-token {
-  max-width: 600px;
+.create-token-container {
+  max-width: 800px;
   margin: 0 auto;
   padding: 20px;
-  background-color: #ffffff;
+}
+
+.create-token-form {
+  background: #ffffff;
+  padding: 30px;
   border-radius: 10px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.create-token-form h2 {
+  margin-bottom: 30px;
+  color: #333;
+  text-align: center;
 }
 
 .wallet-not-connected {
@@ -32,16 +42,18 @@
 .form-group label {
   display: block;
   margin-bottom: 8px;
-  color: #333;
+  color: #555;
   font-weight: 500;
 }
 
 .form-group input {
   width: 100%;
-  padding: 10px;
+  padding: 12px;
   border: 1px solid #ddd;
-  border-radius: 4px;
+  border-radius: 6px;
   font-size: 16px;
+  box-sizing: border-box;
+  transition: border-color 0.3s ease;
 }
 
 .form-group input:focus {
@@ -61,45 +73,52 @@
   text-align: right;
 }
 
-.exchange-rate {
-  background-color: #f8f9fa;
-  padding: 15px;
-  border-radius: 4px;
+.exchange-ratio {
   margin: 20px 0;
+  padding: 15px;
+  background: #f8f9fa;
+  border-radius: 6px;
+  text-align: center;
+  color: #666;
 }
 
-.exchange-rate p {
-  margin: 0;
-  color: #333;
-  font-size: 16px;
-}
-
-.error {
+.error-message {
   color: #dc3545;
-  background-color: #f8d7da;
-  padding: 10px;
-  border-radius: 4px;
   margin: 10px 0;
+  padding: 10px;
+  background: #fff5f5;
+  border-radius: 6px;
+  text-align: center;
+}
+
+.success-message {
+  color: #28a745;
+  margin: 10px 0;
+  padding: 10px;
+  background: #f0fff4;
+  border-radius: 6px;
+  text-align: center;
 }
 
 .create-button {
   width: 100%;
   padding: 12px;
-  background-color: #4a90e2;
+  background: #4a90e2;
   color: white;
   border: none;
-  border-radius: 4px;
+  border-radius: 6px;
   font-size: 16px;
+  font-weight: 500;
   cursor: pointer;
-  transition: background-color 0.2s;
+  transition: background-color 0.3s ease;
 }
 
 .create-button:hover {
-  background-color: #357abd;
+  background: #357abd;
 }
 
 .create-button:disabled {
-  background-color: #ccc;
+  background: #ccc;
   cursor: not-allowed;
 }
 

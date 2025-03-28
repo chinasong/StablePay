@@ -59,6 +59,8 @@ const CreateToken = ({ account, onTokenCreated }) => {
     const [error, setError] = useState('');
     const [loading, setLoading] = useState(false);
     const [balance, setBalance] = useState('0');
+    const [exchangeRatio, setExchangeRatio] = useState('');
+    const [success, setSuccess] = useState('');
 
     // 获取 ETHF 余额
     const getBalance = async () => {
@@ -153,6 +155,7 @@ const CreateToken = ({ account, onTokenCreated }) => {
             if (onTokenCreated) {
                 onTokenCreated();
             }
+            setSuccess('代币创建成功！');
         } catch (err) {
             setError(err.message);
         } finally {
@@ -187,57 +190,62 @@ const CreateToken = ({ account, onTokenCreated }) => {
     }
 
     return (
-        <div className="create-token">
-            <h2>创建新代币</h2>
-            <div className="balance-info">
-                当前 ETHF 余额: {formatNumber(balance)} ETHF
+        <div className="create-token-container">
+            <div className="create-token-form">
+                <h2>创建新代币</h2>
+                <div className="form-group">
+                    <label>代币名称</label>
+                    <input
+                        type="text"
+                        value={tokenName}
+                        onChange={(e) => setTokenName(e.target.value)}
+                        placeholder="输入代币名称"
+                    />
+                </div>
+                <div className="form-group">
+                    <label>代币符号</label>
+                    <input
+                        type="text"
+                        value={tokenSymbol}
+                        onChange={(e) => setTokenSymbol(e.target.value)}
+                        placeholder="输入代币符号"
+                    />
+                </div>
+                <div className="form-group">
+                    <label>抵押 ETHF 数量</label>
+                    <input
+                        type="number"
+                        value={ethfAmount}
+                        onChange={(e) => setEthfAmount(e.target.value)}
+                        placeholder="输入抵押 ETHF 数量"
+                        step="0.000000000000000001"
+                    />
+                </div>
+                <div className="form-group">
+                    <label>代币总量</label>
+                    <input
+                        type="number"
+                        value={totalSupply}
+                        onChange={(e) => setTotalSupply(e.target.value)}
+                        placeholder="输入代币总量"
+                        step="1"
+                    />
+                </div>
+                {exchangeRatio && (
+                    <div className="exchange-ratio">
+                        兑换比例: 1 ETHF = {exchangeRatio} {tokenSymbol}
+                    </div>
+                )}
+                {error && <div className="error-message">{error}</div>}
+                {success && <div className="success-message">{success}</div>}
+                <button
+                    className="create-button"
+                    onClick={handleCreateToken}
+                    disabled={!account || loading}
+                >
+                    {loading ? '创建中...' : '创建代币'}
+                </button>
             </div>
-            <div className="form-group">
-                <label>代币名称</label>
-                <input
-                    type="text"
-                    value={tokenName}
-                    onChange={(e) => setTokenName(e.target.value)}
-                    placeholder="例如: Stable Coin"
-                />
-            </div>
-            <div className="form-group">
-                <label>代币符号</label>
-                <input
-                    type="text"
-                    value={tokenSymbol}
-                    onChange={(e) => setTokenSymbol(e.target.value)}
-                    placeholder="例如: SC"
-                />
-            </div>
-            <div className="form-group">
-                <label>代币总量</label>
-                <input
-                    type="text"
-                    value={totalSupply}
-                    onChange={(e) => handleNumberInput(e.target.value, setTotalSupply)}
-                    placeholder="例如: 1,000,000"
-                    min="1"
-                />
-            </div>
-            <div className="form-group">
-                <label>抵押 ETHF 数量</label>
-                <input
-                    type="text"
-                    value={ethfAmount}
-                    onChange={(e) => handleNumberInput(e.target.value, setEthfAmount)}
-                    placeholder="例如: 1"
-                    min="0.000000000000000001"
-                />
-            </div>
-            {error && <div className="error">{error}</div>}
-            <button
-                className="create-button"
-                onClick={handleCreateToken}
-                disabled={loading || !tokenName || !tokenSymbol || !totalSupply || !ethfAmount}
-            >
-                {loading ? '创建中...' : '创建代币'}
-            </button>
         </div>
     );
 };

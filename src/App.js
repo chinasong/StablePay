@@ -14,7 +14,7 @@ function App() {
   };
 
   return (
-    <Router basename="/StablePay">
+    <Router>
       <div className="App">
         <WalletConnect onAccountChange={handleAccountChange} />
         <Routes>

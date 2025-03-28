@@ -1,23 +1,27 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import './Home.css';
 
-const Home = ({ account }) => {
-  const navigate = useNavigate();
-
-  const handleCreateToken = () => {
-    navigate('/create-token');
-  };
-
+const Home = () => {
   return (
     <div className="home-container">
-      <h1>Welcome to StablePay</h1>
-      <p>Your secure payment solution</p>
-      {account && (
-        <button onClick={handleCreateToken} className="create-token-button">
-          创建抵押稳定币
-        </button>
-      )}
+      <h1>欢迎使用 StablePay</h1>
+      <div className="feature-cards">
+        <div className="feature-card">
+          <h2>创建代币</h2>
+          <p>使用 ETHF 作为抵押创建新的代币</p>
+          <Link to="/create" className="feature-button">
+            开始创建
+          </Link>
+        </div>
+        <div className="feature-card">
+          <h2>查看代币</h2>
+          <p>查看和管理你创建的代币</p>
+          <Link to="/list" className="feature-button">
+            查看列表
+          </Link>
+        </div>
+      </div>
     </div>
   );
 };

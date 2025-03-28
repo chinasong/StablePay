@@ -1,14 +1,14 @@
 .home-container {
-  padding: 40px;
-  text-align: center;
-  max-width: 800px;
+  max-width: 1200px;
   margin: 0 auto;
+  padding: 40px 20px;
+  text-align: center;
 }
 
 .home-container h1 {
-  color: #333;
-  margin-bottom: 20px;
-  font-size: 2.5em;
+  font-size: 2.5rem;
+  color: #2c3e50;
+  margin-bottom: 40px;
 }
 
 .home-container p {
@@ -32,4 +32,47 @@
 
 .create-token-button:hover {
   background-color: #45a049;
+}
+
+.feature-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  margin-top: 40px;
+}
+
+.feature-card {
+  background: white;
+  border-radius: 10px;
+  padding: 30px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-5px);
+}
+
+.feature-card h2 {
+  color: #2c3e50;
+  margin-bottom: 15px;
+}
+
+.feature-card p {
+  color: #666;
+  margin-bottom: 20px;
+}
+
+.feature-button {
+  display: inline-block;
+  background-color: #3498db;
+  color: white;
+  padding: 12px 24px;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.feature-button:hover {
+  background-color: #2980b9;
 } 
