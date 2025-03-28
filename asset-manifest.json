@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/StablePay/static/css/main.6f209990.css",
-    "main.js": "/StablePay/static/js/main.de1e603e.js",
-    "index.html": "/StablePay/index.html",
-    "main.6f209990.css.map": "/StablePay/static/css/main.6f209990.css.map",
-    "main.de1e603e.js.map": "/StablePay/static/js/main.de1e603e.js.map"
+    "main.css": "./static/css/main.60804083.css",
+    "main.js": "./static/js/main.478c31e2.js",
+    "index.html": "./index.html",
+    "main.60804083.css.map": "./static/css/main.60804083.css.map",
+    "main.478c31e2.js.map": "./static/js/main.478c31e2.js.map"
   },
   "entrypoints": [
-    "static/css/main.6f209990.css",
-    "static/js/main.de1e603e.js"
+    "static/css/main.60804083.css",
+    "static/js/main.478c31e2.js"
   ]
 }
