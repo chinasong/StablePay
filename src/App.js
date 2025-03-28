@@ -1,5 +1,5 @@
-import React from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import React, { useState } from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css';
 import Home from './components/Home';
 import CreateToken from './components/CreateToken';
@@ -7,14 +7,20 @@ import TokenList from './components/TokenList';
 import WalletConnect from './components/WalletConnect';
 
 function App() {
+  const [currentAccount, setCurrentAccount] = useState('');
+
+  const handleAccountChange = (account) => {
+    setCurrentAccount(account);
+  };
+
   return (
     <Router basename="/StablePay">
       <div className="App">
-        <WalletConnect />
+        <WalletConnect onAccountChange={handleAccountChange} />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/create" element={<CreateToken />} />
-          <Route path="/list" element={<TokenList />} />
+          <Route path="/create" element={<CreateToken account={currentAccount} />} />
+          <Route path="/list" element={<TokenList account={currentAccount} />} />
         </Routes>
       </div>
     </Router>
