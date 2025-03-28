@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/StablePay/static/css/main.6f209990.css",
+    "main.js": "/StablePay/static/js/main.f0b5be0d.js",
+    "index.html": "/StablePay/index.html",
+    "main.6f209990.css.map": "/StablePay/static/css/main.6f209990.css.map",
+    "main.f0b5be0d.js.map": "/StablePay/static/js/main.f0b5be0d.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.6f209990.css",
+    "static/js/main.f0b5be0d.js"
+  ]
+}
